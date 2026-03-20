@@ -5,25 +5,31 @@
 version = 4
 
 [pinned.mainnet.MoveStdlib]
-source = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework/packages/move-stdlib", rev = "b979a730b73afb8e5f9a9672fa7b09afbff6479b" }
+source = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework/packages/move-stdlib", rev = "b38bca86f0323b3fe8b6b7f4ca0cd7ae7faebe4b" }
 use_environment = "mainnet"
 manifest_digest = "C4FE4C91DE74CBF223B2E380AE40F592177D21870DC2D7EB6227D2D694E05363"
 deps = {}
 
 [pinned.mainnet.Sui]
-source = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework/packages/sui-framework", rev = "b979a730b73afb8e5f9a9672fa7b09afbff6479b" }
+source = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework/packages/sui-framework", rev = "b38bca86f0323b3fe8b6b7f4ca0cd7ae7faebe4b" }
 use_environment = "mainnet"
 manifest_digest = "CD547CB1ACCE0880C835DAED2D8FFCB91D56C833AE5240D3AA5B918398263195"
 deps = { MoveStdlib = "MoveStdlib" }
 
-[pinned.mainnet.stable_layer]
+[pinned.mainnet.example]
 source = { root = true }
+use_environment = "mainnet"
+manifest_digest = "079C6886F14EA0432911E08B40FD03529494CA417B0D5DD0D30482B5D160AD0D"
+deps = { stable_layer = "stable_layer", std = "MoveStdlib", sui = "Sui" }
+
+[pinned.mainnet.stable_layer]
+source = { local = ".." }
 use_environment = "mainnet"
 manifest_digest = "0D1D43E102610A0CEDA519F6F2B1814BB258E54C6D83293FD488003302374201"
 deps = { stable_layer_framework = "stable_layer_framework", std = "MoveStdlib", sui = "Sui" }
 
 [pinned.mainnet.stable_layer_framework]
-source = { local = "framework" }
+source = { local = "../framework" }
 use_environment = "mainnet"
 manifest_digest = "E41BBD67BE8940D26C79D78B028477EF5B33BA217A1282C78ACB344CF8A5ECF6"
 deps = { std = "MoveStdlib", sui = "Sui" }
@@ -40,14 +46,20 @@ use_environment = "testnet"
 manifest_digest = "7AFB66695545775FBFBB2D3078ADFD084244D5002392E837FDE21D9EA1C6D01C"
 deps = { MoveStdlib = "MoveStdlib" }
 
-[pinned.testnet.stable_layer]
+[pinned.testnet.example]
 source = { root = true }
+use_environment = "testnet"
+manifest_digest = "5197FD5EDC756EB7679CAE965F3B4D8B6ACFFDA9E83E476AEC829F362D986CB7"
+deps = { stable_layer = "stable_layer", std = "MoveStdlib", sui = "Sui" }
+
+[pinned.testnet.stable_layer]
+source = { local = ".." }
 use_environment = "testnet"
 manifest_digest = "88DE074FC9E739EE6375B607789DFE2E4DC9E5FCD8A4DEC25603BED1A41390A3"
 deps = { stable_layer_framework = "stable_layer_framework", std = "MoveStdlib", sui = "Sui" }
 
 [pinned.testnet.stable_layer_framework]
-source = { local = "framework" }
+source = { local = "../framework" }
 use_environment = "testnet"
 manifest_digest = "5745706258F61D6CE210904B3E6AE87A73CE9D31A6F93BE4718C442529332A87"
 deps = { std = "MoveStdlib", sui = "Sui" }
