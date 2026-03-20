@@ -1,8 +1,7 @@
-/*
 #[test_only]
 module example::example_tests;
 // uncomment this line to import the module
-// use example::example;
+// use example::brand_usdc;
 
 #[error(code = 0)]
 const ENotImplemented: vector<u8> = b"Not Implemented";
@@ -16,4 +15,3 @@ fun test_example() {
 fun test_example_fail() {
     abort ENotImplemented
 }
-*/

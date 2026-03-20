@@ -10,6 +10,7 @@ const DESCRIPTION: vector<u8> = b"Brand USDC stablecoin backed by USDC";
 const ICON_URL: vector<u8> = b"https://circle.com/usdc-icon";
 
 /// One-time proof object: publisher must pass it to `create_stable` (then it is destroyed).
+/// Delegatable publisher proof — can be delegated to other addresses for `create_stable` calls.
 public struct BrandUSDC has key {
     id: UID,
 }
