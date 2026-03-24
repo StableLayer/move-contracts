@@ -173,8 +173,8 @@ fun settle_reward<U>(
     let now = clock.timestamp_ms();
     let reward_amount = saving_rate
         .mul_u64(state_mut.stake.value())
-        .mul_u64(one_year())
-        .div_u64(now - state_mut.timestamp)
+        .div_u64(one_year())
+        .mul_u64(now - state_mut.timestamp)
         .floor();
     let reward = usdb_treasury_cap.mint_balance(reward_amount);
     state_mut.timestamp = now;
