@@ -131,7 +131,13 @@ public fun claim<STABLE, USD>(
 ): Coin<USDB> {
     let managers = stable_registry.borrow_factory<STABLE, USD>().managers();
     assert!(managers.contains(&ctx.sender()), ESenderIsNotManager);
+    let saving_rate = farm_registry.saving_rate;
+    let mut usdb_treasury_cap = farm_registry.usdb_treasury_cap.extract();
+    let farm_mut = farm_registry.borrow_farm_mut<USD>();
     let factory_entity = entity<StableFactoryEntity<STABLE, USD>>();
+    let state_mut = farm_mut.borrow_state_mut(factory_entity, clock);
+    state_mut.settle_reward(&mut usdb_treasury_cap, saving_rate, clock);
+    farm_registry.usdb_treasury_cap.fill(usdb_treasury_cap);
     farm_registry
         .borrow_farm_mut<USD>()
         .borrow_state_mut(factory_entity, clock)
