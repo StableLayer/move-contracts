@@ -3,7 +3,7 @@ module stable_layer::stable_layer_tests;
 
 use sui::coin::{Self, Coin, TreasuryCap};
 use sui::test_scenario::{Self as ts, Scenario};
-use stable_layer_framework::sheet::{Self, entity};
+use stable_layer::sheet::{Self, entity};
 use stable_layer::stable_layer::{
     Self, StableRegistry, AdminCap, FactoryCap,
 };

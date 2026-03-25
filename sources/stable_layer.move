@@ -6,7 +6,7 @@ use sui::coin::{TreasuryCap, Coin};
 use sui::vec_set::{Self, VecSet};
 use sui::dynamic_object_field as dof;
 use sui::event::{emit};
-use stable_layer_framework::sheet::{
+use stable_layer::sheet::{
     Self, Sheet, entity, Loan, Request, Entity,
 };
 

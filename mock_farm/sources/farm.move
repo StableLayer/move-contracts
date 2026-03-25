@@ -7,8 +7,8 @@ use sui::clock::{Clock};
 use sui::coin_registry::{CoinRegistry};
 use sui::table::{Self, Table};
 use sui::dynamic_object_field as dof;
-use stable_layer_framework::sheet::{Self, Sheet, Loan, Request, Entity, entity};
-use stable_layer_framework::double::{Self, Double};
+use stable_layer::sheet::{Self, Sheet, Loan, Request, Entity, entity};
+use stable_layer::double::{Self, Double};
 use stable_layer::stable_layer::{StableRegistry, StableFactoryEntity};
 use mock_farm::usdb::{Self, USDB};
 
@@ -57,6 +57,7 @@ fun init(ctx: &mut TxContext) {
 /// Admin Functions
 
 #[allow(lint(self_transfer))]
+
 public fun create_registry(
     _cap: &AdminCap,
     coin_registry: &mut CoinRegistry,

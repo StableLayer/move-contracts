@@ -1,8 +1,10 @@
 [package]
 name = "stable_layer"
 edition = "2024.beta" # edition = "legacy" to use legacy (pre-2024) Move
+# Testnet: same package id as StableRegistry / mint (see stable-layer-sdk constants.testnet).
+# mock_farm must link against this when published so `Loan` matches `receive`.
+published-at = "0x3aa25959c431bddf707337753a35147873db01e7b2bb65cf7ff84df1c177b3cb"
 # license = ""           # e.g., "MIT", "GPL", "Apache 2.0"
 # authors = ["..."]      # e.g., ["Joe Smith (joesmith@noemail.com)", "John Snow (johnsnow@noemail.com)"]
 
 [dependencies]
-stable_layer_framework = { local = "./framework" }
